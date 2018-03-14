@@ -1,0 +1,2 @@
+sitemap: http://sweetclean.ru/sitemap.xml
+Host: http://sweetclean.ru
