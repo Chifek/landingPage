@@ -384,11 +384,12 @@ body {
       @media (max-width: 735px) {
         #top_block .content .moto h2, #top_block .content .moto sup {
           font-size: 20px;
-          line-height: 23px; }
-          #top_block .content .moto h2 br, #top_block .content .moto sup br {
-            display: none; } }
+          line-height: 23px !important; } }
     #top_block .content .moto sup {
       font-size: 20px; }
+      @media (max-width: 735px) {
+        #top_block .content .moto sup {
+          font-size: 15px; } }
   #top_block .top_form_wrapper {
     position: absolute;
     bottom: 120px;
