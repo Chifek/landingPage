@@ -1370,91 +1370,6 @@ body
   font-size: 15px
   text-align: center
   width: 80%
-#eco
-  padding: 30px
-  background: #fff
-  box-shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.08)
-  border-radius: 6px
-  @media (max-width: 948px)
-    border-radius: 0
-    -webkit-box-shadow: none
-    -moz-box-shadow: none
-    box-shadow: none
-  @media (max-width: 530px)
-    padding: 0
-  .image_wrapper
-    width: 37%
-    img
-      width: 100%
-      border-radius: 6px
-      &[alt="synergetic_small"]
-        display: none
-        @media (max-width: 803px)
-          display: block
-        @media (max-width: 530px)
-          border-radius: 0
-      &[alt="synergetic"]
-        @media (max-width: 803px)
-          display: none
-  .descr
-    float: right
-    width: 56%
-    @media (max-width: 948px)
-      width: 58%
-    @media (max-width: 870px)
-      width: 55%
-    @media (max-width: 803px)
-      float: none
-      margin-top: 10px
-    .header
-      margin: 0
-      font-family: "MuseoSansBold", Helvetica, Arial, sans-serif
-      line-height: 40px
-      letter-spacing: 0
-      font-size: 40px
-      @media (max-width: 870px)
-        font-size: 30px
-      @media (max-width: 803px)
-        text-align: center
-      @media (max-width: 750px)
-        font-size: 25px
-        margin-bottom: 5px
-        line-height: 25px
-      br
-        @media (max-width: 803px)
-          display: none
-        @media (max-width: 495px)
-          display: block
-    .content
-      //width: 90%
-      font-size: 20px
-      line-height: 30px
-      @media (max-width: 870px)
-        font-size: 19px
-        padding-top: 0
-        p
-          margin-top: 10px
-          margin-bottom: 0
-      @media (max-width: 803px)
-        width: 100%
-      @media (max-width: 750px)
-        font-size: 16px
-        line-height: 22px
-        p
-          margin-top: 0
-      @media (max-width: 530px)
-        width: 80%
-        margin-right: auto
-        margin-left: auto
-        margin-bottom: 10px
-      p
-        @media (max-width: 657px)
-          display: inline
-  .image_wrapper, .descr
-    display: inline-block
-    @media (max-width: 803px)
-      display: block
-      width: 100%
 #prices
   margin-top: 50px
   display: -webkit-flex
@@ -1518,6 +1433,7 @@ body
         margin: 0 30px
 #personnel
   margin-top: 50px
+  height: 550px
   display: -webkit-flex
   display: -ms-flexbox
   display: flex
@@ -1530,6 +1446,7 @@ body
     display: block
   .item
     width: 300px
+    height: 400px
     text-align: center
     border-radius: 6px
     @media (max-width: 710px)
@@ -1541,12 +1458,21 @@ body
         margin-top: 13px
     @media (max-width: 570px)
       width: 300px
-    img
-      display: block
-      border-top-left-radius: 6px
-      border-top-right-radius: 6px
-      width: 100%
-      box-shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.08)
+    .img_wrapper
+      img
+        display: block
+        border-top-left-radius: 6px
+        border-top-right-radius: 6px
+        width: 100%
+        box-shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.08)
+      .header
+        width: 100%
+        position: absolute
+        bottom: 15px
+        color: #ffffff
+        .top
+          font-size: 22px
+          margin-bottom: 8px
     transition: all .8s ease
     -webkit-transform: scale(.7)
     transform: scale(.7)
@@ -1567,7 +1493,12 @@ body
         margin-left: 5px
         display: inline-block
     .descr
-      background-color: rgba(122, 122, 122, 0.67)
+      padding-top: 9px
+      padding-left: 10px
+      padding-right: 10px
+      padding-bottom: 10px
+      background-color: #fff
+      color: #000
       border-bottom-left-radius: 6px
       border-bottom-right-radius: 6px
       box-shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.08)
@@ -1575,12 +1506,6 @@ body
   max-width: 1000px
 .block.faq > .wrapper
   padding-top: 30px
-.block.eco > .wrapper
-  padding-top: 65px
-  padding-bottom: 65px
-  @media (max-width: 750px)
-    padding-top: 40px
-    padding-bottom: 30px
 .block.personnel
   & > .wrapper
     padding-bottom: 30px
