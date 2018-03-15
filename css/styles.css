@@ -202,7 +202,7 @@ body {
   #top_block .header {
     position: relative; }
     #top_block .header .logo {
-      background-image: url(../img/logo_white.svg);
+      background-image: url(../img/logo_white.png);
       display: inline-block;
       height: 40px;
       width: 160px;
@@ -211,15 +211,16 @@ body {
       background-repeat: no-repeat;
       background-size: contain;
       height: 57px;
-      width: 196px;
-      margin-top: 6px; }
+      width: 180px;
+      margin-top: 13px; }
       #top_block .header .logo .cleaning_comp {
         font-weight: normal;
         margin: 0;
         color: #ffffff;
         font-size: 14px;
         position: absolute;
-        bottom: -3px;
+        letter-spacing: 0.8px;
+        bottom: -9px;
         font-family: "MuseoSansRegular", Helvetica, Arial, sans-serif; }
     #top_block .header .menu {
       margin-right: 20px;
