@@ -377,12 +377,17 @@ body {
           display: inline-block; } }
     #top_block .content .moto h1 {
       font-family: "MuseoSansBold", Helvetica, Arial, sans-serif; }
-    @media (max-width: 735px) {
-      #top_block .content .moto h2 {
-        font-size: 20px;
-        line-height: 23px; }
-        #top_block .content .moto h2 br {
-          display: none; } }
+    #top_block .content .moto h2, #top_block .content .moto sup {
+      font-size: 35px;
+      line-height: 53px; }
+      @media (max-width: 735px) {
+        #top_block .content .moto h2, #top_block .content .moto sup {
+          font-size: 20px;
+          line-height: 23px; }
+          #top_block .content .moto h2 br, #top_block .content .moto sup br {
+            display: none; } }
+    #top_block .content .moto sup {
+      font-size: 20px; }
   #top_block .top_form_wrapper {
     position: absolute;
     bottom: 120px;
