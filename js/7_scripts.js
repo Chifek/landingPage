@@ -4,50 +4,6 @@ window.onbeforeunload = function () {
 var nav_visible;
 var nav = $('#nav');
 var intervalID;
-var rooms = 0;
-var closets = 0;
-var total = 0;
-var extra_services_sum = 0;
-var extra_services_list =[];
-var extra_info;
-var ROOMS_DICT = {
-    0: 'Кол-во комнат',
-    1: '1-комнатная',
-    2: '2-комнатная',
-    3: '3-комнатная',
-    4: '4-комнатная',
-    5: '5-комнатная'
-};
-var CLOSETS_DICT = {
-    0: 'Кол-во санузлов',
-    1: '1 санузел',
-    2: '2 санузла',
-    3: '3 санузла',
-    4: '4 санузла',
-    5: '5 санузлов'
-};
-var PRICES = {
-    'room': {
-        1: 1590,
-        2: 1990,
-        3: 2490,
-        4: 3190,
-        5: 3890
-    },
-    'closet': 400,
-    'внутри холодильника': 600,
-    'внутри духовки': 500,
-    'мытьё посуды': 300,
-    'внутри микроволновки': 300,
-    'смена белья': 220,
-    'уборка на балконе': 600, // за штуку
-    'глажка белья': 500,
-    'уборка лотка питомца': 200, // за штуку
-    'внутри кухонных шкафов': 400,
-    'уборка в гардеробной': 500,
-    'мытьё вытяжки': 300,
-    'мытьё окон (с вн. ст.)': 200 // за штуку
-};
 
 $(document).ready(function(){
     set_float_nav();
@@ -61,31 +17,9 @@ $(document).ready(function(){
     personnel_transform();
     set_mobile_menu();
     set_interval();
-    set_picker_click_handler();
-    set_extra_services_click_handler();
-    set_select_click_handler();
     set_how_we_work_left_right_buttons_listener();
     set_examples();
-    // set_dialog();
 });
-// function set_dialog() {
-//     $("#dialog").dialog({
-//       autoOpen: false,
-//       draggable: false,
-//       show: {effect: "fade", duration: 800},
-//       buttons: [
-//         {
-//           text: "OK",
-//           click: function() {
-//             $(this).dialog("close");
-//           }
-//         }
-//       ]
-//     });
-//     setTimeout(function func() {
-//       $("#dialog").dialog("open");
-//     }, 1000);
-// }
 var handler = onVisibilityChange($('#slider_buttons'), function(visible) {
     if (visible) {
         intervalID = setInterval(function() {
@@ -243,12 +177,6 @@ function set_scroll_down() {
     }, 500);
   });
   $("#prices button").click(function() {
-      rooms = $(this).data('name');
-      closets = 1;
-      $(".picker.rooms .value").text(ROOMS_DICT[rooms]);
-      $(".picker.closets .value").text(CLOSETS_DICT[closets]);
-      check_rooms_disabled();
-      check_closets_disabled();
     $('html, body').animate({
         scrollTop: $(".block.order").offset().top - 40
     }, 500);
@@ -269,12 +197,6 @@ function set_scroll_down() {
     event.preventDefault();
     $('html, body').animate({
         scrollTop: $("#block_how_we_works").offset().top - 40
-    }, 500);
-  });
-  $('[href="#block_eco"]').click(function (event) {
-    event.preventDefault();
-    $('html, body').animate({
-        scrollTop: $("#block_eco").offset().top - 40
     }, 500);
   });
   $('[href="#block_prices"]').click(function (event) {
@@ -325,10 +247,6 @@ function set_form_submit_listener() {
             {
                 'имя': name,
                 'телефон': phone,
-                'комнаты': extra_info ? rooms : undefined,
-                'санузлы': extra_info ? closets : undefined,
-                'доп. услуги': (extra_info && extra_services_list.length > 0) ? extra_services_list : undefined,
-                'сумма': extra_info ? total : undefined
             }, function(){}
 		);
         $(that).find('input[name="name"]').val('');
@@ -350,105 +268,6 @@ function set_float_nav() {
             nav_visible = false;
             nav.removeClass('visible');
         }
-    });
-}
-function check_rooms_disabled(val) {
-    if (rooms === 5) {
-        $(".picker.rooms .plus").addClass('disabled');
-    } else {
-        $(".picker.rooms .plus").removeClass('disabled');
-    }
-    if (rooms === 0) {
-        $(".picker.rooms .minus").addClass('disabled');
-    } else {
-        $(".picker.rooms .minus").removeClass('disabled');
-    }
-    check_total();
-}
-function check_closets_disabled(val) {
-    if (closets === 5) {
-        $(".picker.closets .plus").addClass('disabled');
-    } else {
-        $(".picker.closets .plus").removeClass('disabled');
-    }
-    if (closets === 0) {
-        $(".picker.closets .minus").addClass('disabled');
-    } else {
-        $(".picker.closets .minus").removeClass('disabled');
-    }
-    check_total();
-}
-function set_picker_click_handler() {
-  $(".picker.rooms .plus").click(function() {
-    if (rooms === 5) return;
-    rooms ++;
-    $(".picker.rooms .value").text(ROOMS_DICT[rooms]);
-    check_rooms_disabled();
-  });
-  $(".picker.rooms .minus").click(function() {
-    if (rooms === 0) return;
-    rooms --;
-    $(".picker.rooms .value").text(ROOMS_DICT[rooms]);
-    check_rooms_disabled();
-  });
-  $(".picker.closets .plus").click(function() {
-    if (closets === 5) return;
-    closets ++;
-    $(".picker.closets .value").text(CLOSETS_DICT[closets]);
-    check_closets_disabled();
-  });
-  $(".picker.closets .minus").click(function() {
-    if (closets === 0) return;
-    closets --;
-    $(".picker.closets .value").text(CLOSETS_DICT[closets]);
-    check_closets_disabled();
-  });
-}
-function check_total() {
-    if (closets === 0 || rooms === 0) {
-        extra_info = false;
-        $(".total .variable, .total .currency").addClass('hidden');
-    } else {
-        extra_info = true;
-        get_extra_services();
-        total = PRICES['room'][rooms] + PRICES['closet'] * (closets - 1) + extra_services_sum;
-        $(".total .variable").text(total);
-        $(".total .variable, .total .currency").removeClass('hidden');
-    }
-}
-function get_extra_services() {
-    extra_services_sum = 0;
-    extra_services_list = [];
-      $(".extra_services label input:checked").each(function (index, item) {
-          var cls = $(item).attr('class');
-          var multiply;
-          if (cls) {
-              multiply = parseInt($('div.' + cls + ' > .dropdown .selected').text());
-          }
-          extra_services_sum = extra_services_sum + PRICES[$(item).siblings('span').text()] * (multiply ? multiply : 1);
-          if (multiply) {
-              extra_services_list.push($(item).siblings('span').text() + '(' + multiply + ')');
-          } else {
-              extra_services_list.push($(item).siblings('span').text());
-          }
-      });
-}
-function set_extra_services_click_handler() {
-  $(".extra_services label input").click(function() {
-      var cls = $(this).attr('class');
-      if (cls) {
-          if ($(this).is(":checked")) {
-              $('div.' + cls + ' > .dropdown').css('display', 'inline-block');
-          } else {
-              $('div.' + cls + ' > .dropdown').css('display', 'none');
-          }
-      }
-      check_total();
-  });
-}
-function set_select_click_handler() {
-    $( "select" ).change(function(val) {
-      check_total();
     });
 }
 function set_examples() {
