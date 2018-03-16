@@ -1,2 +1,2 @@
-sitemap: http://sweetclean.ru/sitemap.xml
-Host: http://sweetclean.ru
+sitemap: http://stroyremburg.ru/sitemap.xml
+Host: http://stroyremburg.ru
