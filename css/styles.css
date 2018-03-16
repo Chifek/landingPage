@@ -1515,9 +1515,9 @@ body .accordion_header {
       transform: rotate(45deg); }
 
 #slider_text {
-  height: 200px;
+  height: 220px;
   display: none;
-  width: 60%;
+  width: 70%;
   position: relative;
   margin-left: auto;
   margin-right: auto; }
@@ -1530,12 +1530,18 @@ body .accordion_header {
   @media (max-width: 550px) {
     #slider_text {
       width: 90%; } }
+  @media (max-width: 497px) {
+    #slider_text {
+      height: 230px; } }
   @media (max-width: 440px) {
     #slider_text {
       width: 97%; } }
   @media (max-width: 388px) {
     #slider_text {
       height: 258px; } }
+  @media (max-width: 329px) {
+    #slider_text {
+      height: 267px; } }
   #slider_text > .item {
     margin: 0;
     list-style-type: none;
