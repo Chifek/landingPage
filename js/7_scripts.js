@@ -321,7 +321,7 @@ function set_form_submit_listener() {
         }
 
 		$.post(
-		    'https://script.google.com/macros/s/AKfycbxUQmB4xywU_aqtsjEwX2Y6TXTgg8gLQ78ecU1vWlQ5Wu7Frgk/exec',
+		    'https://script.google.com/macros/s/AKfycbxigfMei9euWMUacYNcaXdwzOMR5zEr4tNuoOMlTYrMAREJrQom/exec',
             {
                 'имя': name,
                 'телефон': phone,
