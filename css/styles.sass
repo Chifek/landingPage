@@ -1393,6 +1393,9 @@ body
     background: #fff
     box-shadow: 0 2px 23px 0 rgba(0, 0, 0, 0.08)
     border-radius: 6px
+    transition: 0.6s
+    &:hover
+      box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.36)
     @media (max-width: 953px)
       &:last-of-type
         margin-top: 13px
@@ -1421,6 +1424,7 @@ body
         padding: 0 30px
         .value
           margin-right: 8px
+          margin-left: 8px
           font-size: 40px
           line-height: 1em
           font-weight: 900
@@ -1430,6 +1434,10 @@ body
         padding: 0 30px
         margin-top: 10px
         margin-bottom: 10px
+      .details
+        height: 99px
+        padding: 0 30px
+        margin: 15px 0
       button
         width: calc(100% - 60px)
         font-size: 16px
