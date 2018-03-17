@@ -1394,7 +1394,6 @@ body .accordion_header {
       margin-left: auto;
       margin-right: auto; } }
   #examples img {
-    opacity: 0;
     position: absolute;
     transition: all 0.3s ease;
     border-radius: 8px;
@@ -1405,8 +1404,6 @@ body .accordion_header {
     @media (max-width: 1000px) {
       #examples img {
         border-radius: 0; } }
-    #examples img.active {
-      opacity: 1; }
   #examples .left, #examples .right {
     background: rgba(255, 255, 255, 0.8);
     transition: border-color 0.2s ease;

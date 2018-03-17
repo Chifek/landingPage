@@ -275,29 +275,27 @@ function set_examples() {
         interval = setInterval(function() {
             current ++;
             if (current > images_count) current = 1;
-            $('#examples img.active').removeClass('active');
-            $("#examples img[name=" + current + "]").addClass('active');
+            $('#examples img').attr('src','img/examples/' + current + '.jpg');
         }, 4000);
     }
     $("#examples img:first-of-type").addClass('active');
+    var positions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
     var current = 1;
-    var images_count = $("#examples img").length;
+    var images_count = positions.length;
     var interval;
     set_examples_interval();
     $("#examples .right").on('click', function() {
         clearInterval(interval);
         current ++;
         if (current > images_count) current = 1;
-        $('#examples img.active').removeClass('active');
-        $("#examples img[name=" + current + "]").addClass('active');
+        $('#examples img').attr('src','img/examples/' + current + '.jpg');
         set_examples_interval();
     });
     $("#examples .left").on('click', function() {
         clearInterval(interval);
         current --;
         if (current === 0) current = images_count;
-        $('#examples img.active').removeClass('active');
-        $("#examples img[name=" + current + "]").addClass('active');
+        $('#examples img').attr('src','img/examples/' + current + '.jpg');
         set_examples_interval();
     });
 }
