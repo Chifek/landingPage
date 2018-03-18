@@ -253,6 +253,7 @@ function set_form_submit_listener() {
         $(that).find('input[name="phone"]').val('');
         $(that).find('button[type="submit"]').prop('disabled', false);
         toastr.success('Заявка успешно отправлена.');
+        yaCounter48105344.reachGoal('zayavka');
 		return false;
 	});
 }
