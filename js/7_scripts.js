@@ -223,40 +223,40 @@ function set_toastr_options() {
     }
 }
 function set_phone_mask() {
-    $('[name="phone"]').mask("+7 (999) 999-99-99");
+    $('[name="phone"]').mask("+996 (555) 55-55-55");
 }
-function set_form_submit_listener() {
-    $('form').submit(function(){
-        var that = this;
-        $(this).find('button[type="submit"]').prop('disabled', true);
-        var name = $(this).find('input[name="name"]').val();
-        var phone = $(this).find('input[name="phone"]').val();
-        if (!name.replace(/ /g,'')) {
-            toastr.info('Пожалуйста, укажите Ваше имя.');
-            $(this).find('button[type="submit"]').prop('disabled', false);
-            return false;
-        }
-        if (!phone) {
-            toastr.info('Пожалуйста, введите номер телефона.');
-            $(this).find('button[type="submit"]').prop('disabled', false);
-            return false;
-        }
-
-		$.post(
-		    'https://script.google.com/macros/s/AKfycbxigfMei9euWMUacYNcaXdwzOMR5zEr4tNuoOMlTYrMAREJrQom/exec',
-            {
-                'имя': name,
-                'телефон': phone,
-            }, function(){}
-		);
-        $(that).find('input[name="name"]').val('');
-        $(that).find('input[name="phone"]').val('');
-        $(that).find('button[type="submit"]').prop('disabled', false);
-        toastr.success('Заявка успешно отправлена.');
-        yaCounter48105344.reachGoal('zayavka');
-		return false;
-	});
-}
+// function set_form_submit_listener() {
+//     $('form').submit(function(){
+//         var that = this;
+//         $(this).find('button[type="submit"]').prop('disabled', true);
+//         var name = $(this).find('input[name="name"]').val();
+//         var phone = $(this).find('input[name="phone"]').val();
+//         if (!name.replace(/ /g,'')) {
+//             toastr.info('Пожалуйста, укажите Ваше имя.');
+//             $(this).find('button[type="submit"]').prop('disabled', false);
+//             return false;
+//         }
+//         if (!phone) {
+//             toastr.info('Пожалуйста, введите номер телефона.');
+//             $(this).find('button[type="submit"]').prop('disabled', false);
+//             return false;
+//         }
+//
+// 		$.post(
+// 		    'https://script.google.com/macros/s/AKfycbwRmUaAiaD0dWNuCP3qXLDklUTGU5wYFnudhVqr12Tz5mQSj90/exec',
+//             {
+//                 'имя': Name,
+//                 'телефон': Phone,
+//             }, function(){}
+// 		);
+//         $(that).find('input[name="name"]').val('');
+//         $(that).find('input[name="phone"]').val('');
+//         $(that).find('button[type="submit"]').prop('disabled', false);
+//         toastr.success('Заявка успешно отправлена.');
+//         yaCounter48105344.reachGoal('zayavka');
+// 		return false;
+// 	});
+// }
 function set_float_nav() {
     $(window).scroll(function() {
         var scroll_top = $(window).scrollTop();
@@ -280,7 +280,7 @@ function set_examples() {
         }, 4000);
     }
     $("#examples img:first-of-type").addClass('active');
-    var positions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+    var positions = [1, 2, 3, 4];
     var current = 1;
     var images_count = positions.length;
     var interval;
@@ -300,3 +300,21 @@ function set_examples() {
         set_examples_interval();
     });
 }
+
+// jQuery(document).ready(function() {
+//     jQuery('#moya_forma form').submit(function() {
+//         alert('ok');
+//         var Name = jQuery("#Name").val();
+//         var Phone = jQuery("#Phone").val();
+//         var http = new XMLHttpRequest();
+//         var url = "https://script.google.com/macros/s/AKfycbwRmUaAiaD0dWNuCP3qXLDklUTGU5wYFnudhVqr12Tz5mQSj90/exec";
+//         var params = "p1="+Name+"&p2="+Phone;
+//         http.open("GET", url+"?"+params, true);
+//         http.onreadystatechange = function() {
+//             if(http.readyState == 4 && http.status == 200) {
+//                 alert(http.responseText);
+//             }
+//         }
+//         http.send(null);
+//     });
+// });

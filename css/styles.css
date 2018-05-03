@@ -191,7 +191,8 @@ body {
     width: 100%;
     background-size: cover;
     position: absolute;
-    background-image: url(../img/kvartira.jpg); }
+    background-image: url(../img/backgrpund.png); }
+    /*background-image: url(../img/kvartira.jpg); }*/
     @media (max-width: 600px) {
       #top_block .back_image {
         -webkit-filter: blur(5px);
