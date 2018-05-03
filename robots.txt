@@ -1,2 +1,2 @@
-sitemap: http://stroyremburg.ru/sitemap.xml
-Host: http://stroyremburg.ru
+sitemap: http://dev-trust.net/sitemap.xml
+Host: http://dev-trust.net
